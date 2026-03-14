@@ -26,6 +26,7 @@ The BLS OOH covers **342 occupations** spanning every sector of the US economy, 
 | `occupations.json` | Master list of 342 occupations with title, URL, category, slug |
 | `occupations.csv` | Summary stats: pay, education, job count, growth projections |
 | `scores.json` | AI exposure scores (0-10) with rationales for all 342 occupations |
+| `prompt.md` | All data in a single file, designed to be pasted into an LLM for analysis |
 | `html/` | Raw HTML pages from BLS (source of truth, ~40MB) |
 | `pages/` | Clean Markdown versions of each occupation page |
 | `site/` | Static website (treemap visualization) |
@@ -56,6 +57,10 @@ The main visualization is an interactive **treemap** where:
 - **Color** indicates AI exposure on a green (safe) to red (exposed) scale
 - **Layout** groups occupations by BLS category
 - **Hover** shows detailed tooltip with pay, jobs, outlook, education, exposure score, and LLM rationale
+
+## LLM prompt
+
+[`prompt.md`](prompt.md) packages all the data — aggregate statistics, tier breakdowns, exposure by pay/education, BLS growth projections, and all 342 occupations with their scores and rationales — into a single file (~45K tokens) designed to be pasted into an LLM. This lets you have a data-grounded conversation about AI's impact on the job market without needing to run any code. Regenerate it with `uv run python make_prompt.py`.
 
 ## Setup
 
